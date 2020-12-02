@@ -1,7 +1,7 @@
-<h1> Welcome to bhash! 
+-- Welcome to bhash! 
   
    - Bhaskar's Shell...     ( bhash : BHAskar SHell ) 
-<h1>
+
 
 The shell can be initialized by running "make ./bhash" in the terminal.
 This will make *.o files and and an executable file shell which could be run by using "./bhash" command. And to remove the *.o files and bhash shell file use "make clean" in the terminal.  
