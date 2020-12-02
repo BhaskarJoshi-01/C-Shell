@@ -1,5 +1,6 @@
-Welcome to bhash! - Bhaskar's Shell...
-(bhash : BHAskar SHell) 
+<h1> Welcome to bhash! 
+  
+   - Bhaskar's Shell...     ( bhash : BHAskar SHell ) 
 
 
 The shell can be initialized by running "make ./bhash" in the terminal.
