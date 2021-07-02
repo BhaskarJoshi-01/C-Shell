@@ -10,7 +10,6 @@ void echo(char **args)
 	if (args[i] == NULL)
 	{
 		printf("\n");
-		// printf(":')");
 		exst = 0;
 		n=1;
 		return;
@@ -31,11 +30,6 @@ void echo(char **args)
 		exst = 0;
 		printf("\n");
 
-		// printf(":')");
-		// if(n!=0)
-		// {
-		// 	break;
-		// }
 	}
 	return;
 }

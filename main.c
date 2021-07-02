@@ -8,9 +8,9 @@
 #include <fcntl.h>
 #include "headerfile.h"
 
-void green() //actually it is yellow to diff btw vscode and my terminal
+void green() 
 {
-    printf("\033[1;33m");
+    printf("\033[1;32m");
 }
 void blue()
 {

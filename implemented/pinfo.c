@@ -64,7 +64,6 @@ void pinfo(char **args)
             count += 1;
         }
         fclose(file);
-        /////
         sprintf(str, "/proc/%d/statm", pid);
         file = fopen(str, "r");
 
@@ -80,7 +79,6 @@ void pinfo(char **args)
         int poss = (int)var1;
         bufff[poss] = '\0';
 
-        ////
         char *str = strtok(bufff, " ");
         printf("memory -- ");
         long long int valuu = atoi(str);
@@ -99,11 +97,9 @@ void pinfo(char **args)
             exst = 1;
         }
         else
-        
         {
             printf("Executable Path -- "), printf("%.*s\n", (int)strlen(home) + 6, path);
             exst = 0;
         } 
-        // fclose(file);
     }
 }

@@ -22,7 +22,6 @@
 #include <unistd.h>
 #include <langinfo.h>
 #include <sys/ioctl.h>
-#define sin_f STDIN_FILENO
 int keyDown()
 {
     struct termios oldat;
@@ -30,12 +29,12 @@ int keyDown()
     struct termios newat;
 
     int key;
-    key = tcgetattr(sin_f, &oldat);
+    key = tcgetattr(STDIN_FILENO, &oldat);
     if (!key)
     {
         newat = oldat;
         newat.c_lflag &= ~(ICANON | ECHO);
-        tcsetattr(sin_f, TCSANOW, &newat), ioctl(sin_f, FIONREAD, &chb), tcsetattr(sin_f, TCSANOW, &oldat);
+        tcsetattr(STDIN_FILENO, TCSANOW, &newat), ioctl(STDIN_FILENO, FIONREAD, &chb), tcsetattr(STDIN_FILENO, TCSANOW, &oldat);
         if (chb > 0)
             return 1;
         else

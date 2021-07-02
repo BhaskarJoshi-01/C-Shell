@@ -10,7 +10,6 @@
 #include <signal.h>
 #include <limits.h>
 #include <unistd.h>
-#define sin_f STDIN_FILENO
 #include <termios.h>
 #include <sys/ioctl.h>
 

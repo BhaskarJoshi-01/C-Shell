@@ -11,7 +11,6 @@
 #include <string.h>
 #include <wait.h>
 #include "headerfile.h"
-#define bb backarray[backpointer]
 
 void backquit1(int);
 
@@ -73,13 +72,13 @@ void unimplemented(char **execmd, int checkand)
 
             if (WIFSTOPPED(i))
             {
-                bb.pid = runproc.pid;
-                bb.status = 2;
+                backarray[backpointer].pid = runproc.pid;
+                backarray[backpointer].status = 2;
                 exst = 1;
                 printf("process %d sent to background ", runproc.pid);
                 printf("\n");
-                bb.command = "0";
-                bb.command = runproc.command;
+                backarray[backpointer].command = "0";
+                backarray[backpointer].command = runproc.command;
                 backpointer += 1;
                 runproc.pid = 0;
             }
@@ -89,10 +88,10 @@ void unimplemented(char **execmd, int checkand)
         {
 
             signal(SIGCHLD, backquit);
-            bb.status = 1;
-            bb.pid = proccessid;
-            bb.command = execmd[0];
-            bb.index = backpointer;
+            backarray[backpointer].status = 1;
+            backarray[backpointer].pid = proccessid;
+            backarray[backpointer].command = execmd[0];
+            backarray[backpointer].index = backpointer;
             backpointer += 1;
             setpgid(proccessid, 0);
             tcsetpgrp(STDIN_FILENO, getpgrp());

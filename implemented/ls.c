@@ -10,7 +10,6 @@
 #include <pwd.h>
 #include <grp.h>
 #include <time.h>
-#define fmode filestat.st_mode
 
 struct stat filestat;
 struct tm *filetime;
@@ -20,54 +19,54 @@ void get_print_info(char *filename, char *file)
     char type;
     type = ' ';
     stat(filename, &filestat);
-    if (S_ISREG(fmode))
+    if (S_ISREG(filestat.st_mode))
         type = '-';
-    else if (S_ISSOCK(fmode))
+    else if (S_ISSOCK(filestat.st_mode))
         type = 's';
-    else if (S_ISDIR(fmode))
+    else if (S_ISDIR(filestat.st_mode))
         type = 'd';
-    else if (S_ISBLK(fmode))
+    else if (S_ISBLK(filestat.st_mode))
         type = 'b';
-    else if (S_ISCHR(fmode))
+    else if (S_ISCHR(filestat.st_mode))
         type = 'c';
-    else if (S_ISLNK(fmode))
+    else if (S_ISLNK(filestat.st_mode))
         type = 'l';
 
     printf("%c", type);
 
-    if (fmode & S_IRUSR)
+    if (filestat.st_mode & S_IRUSR)
         printf("r");
     else
         printf("-");
-    if (fmode & S_IWUSR)
+    if (filestat.st_mode & S_IWUSR)
         printf("w");
     else
         printf("-");
-    if (fmode & S_IXUSR)
+    if (filestat.st_mode & S_IXUSR)
         printf("x");
     else
         printf("-");
-    if (fmode & S_IRGRP)
+    if (filestat.st_mode & S_IRGRP)
         printf("r");
     else
         printf("-");
-    if (fmode & S_IWGRP)
+    if (filestat.st_mode & S_IWGRP)
         printf("w");
     else
         printf("-");
-    if (fmode & S_IXGRP)
+    if (filestat.st_mode & S_IXGRP)
         printf("x");
     else
         printf("-");
-    if (fmode & S_IROTH)
+    if (filestat.st_mode & S_IROTH)
         printf("r");
     else
         printf("-");
-    if (fmode & S_IWOTH)
+    if (filestat.st_mode & S_IWOTH)
         printf("w");
     else
         printf("-");
-    if (fmode & S_IXOTH)
+    if (filestat.st_mode & S_IXOTH)
         printf("x");
     else
         printf("-");
@@ -89,9 +88,9 @@ void get_print_info(char *filename, char *file)
     printf(" ");
     int no;
     no = 0;
-    if (S_ISDIR(fmode))
+    if (S_ISDIR(filestat.st_mode))
         blue();
-    else if (S_IXUSR & fmode)
+    else if (S_IXUSR & filestat.st_mode)
         green();
     else
         no = 1;
@@ -168,9 +167,9 @@ void ls(char **cmdarg)
                 {
                     int no = 0;
                     stat(list[count]->d_name, &filestat);
-                    if (S_ISDIR(fmode))
+                    if (S_ISDIR(filestat.st_mode))
                         blue();
-                    else if (fmode & S_IXUSR)
+                    else if (filestat.st_mode & S_IXUSR)
                         green();
                     else
                         no = 1;
@@ -233,9 +232,9 @@ void ls(char **cmdarg)
                             strcpy(filepath1, temp);
                             strcat(filepath1, "/"), strcat(filepath1, list[count]->d_name);
                             stat(filepath1, &filestat);
-                            if (S_ISDIR(fmode))
+                            if (S_ISDIR(filestat.st_mode))
                                 blue();
-                            else if (S_IXUSR & fmode)
+                            else if (S_IXUSR & filestat.st_mode)
                                 green();
                             else
                                 no = 1;
@@ -396,5 +395,4 @@ void ls(char **cmdarg)
             }
         }
     }
-    // printf("\n");
 }

@@ -7,8 +7,7 @@ void pwd()
 {
     char currentdir[4096];
     getcwd(currentdir, 4096);
-    printf("%s", currentdir);
-    printf("\n");
+    printf("%s\n", currentdir);
     exst = 0;
     return;
 }

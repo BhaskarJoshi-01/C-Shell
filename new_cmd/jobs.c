@@ -9,7 +9,6 @@
 #include <fcntl.h>
 #include <pwd.h>
 #include "../headerfile.h"
-#define bj backarray[jobid]
 void checkallkill()
 {
     char str[1200];
@@ -225,12 +224,12 @@ void fg(char **args)
         pid_t y;
         y = getpgrp();
 
-        setpgid(bj.pid, getpgid(0));
+        setpgid(backarray[jobid].pid, getpgid(0));
         signal(SIGTTIN, SIG_IGN);
         signal(SIGTTOU, SIG_IGN);
-        tcsetpgrp(STDIN_FILENO, bj.pid);
-        runproc.pid = bj.pid;
-        if (kill((bj.pid), SIGCONT) == -1)
+        tcsetpgrp(STDIN_FILENO, backarray[jobid].pid);
+        runproc.pid = backarray[jobid].pid;
+        if (kill((backarray[jobid].pid), SIGCONT) == -1)
         {
             perror("Error in fg");
             // printf(":'(");
@@ -239,9 +238,9 @@ void fg(char **args)
             return;
         }
 
-        bj.status = 3;
+        backarray[jobid].status = 3;
         int useless;
-        waitpid(bj.pid, &useless, WUNTRACED);
+        waitpid(backarray[jobid].pid, &useless, WUNTRACED);
 
         tcsetpgrp(STDIN_FILENO, getpgrp());
 

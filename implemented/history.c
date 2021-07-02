@@ -17,8 +17,7 @@ void addhis(char *cmd)
 void history(char **cmd)
 {
     exst = 0;
-    int n, k, i;
-    k = 0, i = 0;
+    int n, k=0;
 
     if (cmd[1] == NULL)
         n = 10;
@@ -37,7 +36,7 @@ void history(char **cmd)
         }
     }
 
-    for (i = n; i > 0; --i)
+    for (int i = n; i > 0; --i)
     {
         k = his.histins - i;
         k %= mod;

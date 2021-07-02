@@ -10,7 +10,6 @@
 #include <pwd.h>
 
 #include "../headerfile.h"
-#define bb backarray[backpointer]
 void killemall(char **args)
 {
     if (args[1] != NULL)
