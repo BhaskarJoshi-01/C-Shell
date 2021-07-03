@@ -34,47 +34,40 @@ void bghand(char **args)
         cv += 1;
     }
 
-    if (2 < cv)
+    if ( cv> 2)
     {
         printf(" Too many arguments passed ");
         printf("\n");
-        // printf(":'(");
         exst = 1;
     }
     else
     {
-        if (!(cv - 1))
+        if(cv == 1 )
         {
             jobid = backpointer;
             jobid--;
         }
-        if (((jobid - backpointer) >= 0) || (jobid < 0))
+        if ((jobid >= backpointer) || (jobid < 0))
         {
-            printf(" No such job exists ");
-            printf("\n");
-            // printf(":'(");
+            printf(" No such job exists \n");
             exst = 1;
         }
-        else if (0 != backarray[jobid].status)
+        else if (backarray[jobid].status != 0)
         {
             if (kill(backarray[jobid].pid, 18) != -1)
             {
                 backarray[jobid].status = 1;
-                // printf(":')");
                 exst = 0;
             }
             else
             {
                 perror(" Error in bghand ");
-                // printf(":'(");
                 exst = 1;
             }
         }
         else
         {
-            printf(" No such job exists ");
-            printf("\n");
-            // printf(":'(");
+            printf(" No such job exists \n");
             exst = 1;
         }
     }

@@ -85,7 +85,6 @@ void getdir()
 void print_promt()
 {
     char host[150], username[150];
-    // signal(SIGCHLD, backquit);
 
     while (1)
     {

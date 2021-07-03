@@ -34,7 +34,9 @@ int keyDown()
     {
         newat = oldat;
         newat.c_lflag &= ~(ICANON | ECHO);
-        tcsetattr(STDIN_FILENO, TCSANOW, &newat), ioctl(STDIN_FILENO, FIONREAD, &chb), tcsetattr(STDIN_FILENO, TCSANOW, &oldat);
+        tcsetattr(STDIN_FILENO, TCSANOW, &newat);
+        ioctl(STDIN_FILENO, FIONREAD, &chb);
+        tcsetattr(STDIN_FILENO, TCSANOW, &oldat);
         if (chb > 0)
             return 1;
         else
@@ -71,7 +73,6 @@ void newborn()
         while (NULL != str)
         {
             strcpy(arra, str);
-            // arra[f_size]='\0';
             strcpy(buff, arra);
             str = strtok(NULL, " ");
         }

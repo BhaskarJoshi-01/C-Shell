@@ -18,7 +18,7 @@ char **splitcmd(char *takecommand)
     char **cmdarray = malloc(sizeof(char *) * 105);
     int pt = 0;
 
-    if (NULL == cmdarray)
+    if (cmdarray == NULL)
     {
         printf("malloc Fails");
         printf("\n");
@@ -47,8 +47,6 @@ char **splitcmd(char *takecommand)
     }
 
     cmdarray[pt] = 0;
-    // if (!ff)
-    //     return NULL;
     return cmdarray;
 }
 int checkand(char **);
@@ -59,8 +57,7 @@ char **splitargs(char *command)
     char **argarray = malloc(sizeof(char *) * 105);
     if (NULL == argarray)
     {
-        printf("malloc Fails");
-        printf("\n");
+        printf("malloc Fails\n");
         exst = 1;
     }
     char *placeholder = strtok(command, " \t");
@@ -73,8 +70,7 @@ char **splitargs(char *command)
             argarray = realloc(argarray, sizeof(char *) * 105);
             if (NULL == argarray)
             {
-                printf("realloc fails");
-                printf("\n");
+                printf("realloc fails\n");
                 exst = 1;
             }
         }
@@ -115,9 +111,6 @@ int checklogical(char **execmd)
     if ((execmd[0][strlen(execmd[0]) - 1] == '@') || (execmd[0][strlen(execmd[0]) - 1] == '$'))
     {
         retflag += 1;
-    }
-    else
-    {
     }
     while (execmd[i] != NULL)
     {
@@ -236,101 +229,28 @@ void execute(char *cmd)
 
 char *commandexec(char *takecommad)
 {
+    strcpy(cmdlist[0],"ls");
+    strcpy(cmdlist[1],"pwd");
+    strcpy(cmdlist[2],"cd");
+    strcpy(cmdlist[3],"echo");
+    strcpy(cmdlist[4],"pinfo");
+    strcpy(cmdlist[5],"history");
+    strcpy(cmdlist[6],"nightswatch");
+    strcpy(cmdlist[7],"setenv");
+    strcpy(cmdlist[8],"unsetenv");
+    strcpy(cmdlist[9],"bg");
+    strcpy(cmdlist[10],"jobs");
+    strcpy(cmdlist[11],"overkill");
+    strcpy(cmdlist[12],"kjobs");
+    strcpy(cmdlist[13],"fg");
 
-    cmdlist[0][0] = 'l';
-    cmdlist[0][1] = 's';
-
-    cmdlist[1][0] = 'p';
-    cmdlist[1][1] = 'w';
-    cmdlist[1][2] = 'd';
-
-    cmdlist[2][0] = 'c';
-    cmdlist[2][1] = 'd';
-
-    cmdlist[3][0] = 'e';
-    cmdlist[3][1] = 'c';
-    cmdlist[3][2] = 'h';
-    cmdlist[3][3] = 'o';
-
-    cmdlist[4][0] = 'p';
-    cmdlist[4][1] = 'i';
-    cmdlist[4][2] = 'n';
-    cmdlist[4][3] = 'f';
-    cmdlist[4][4] = 'o';
-
-    cmdlist[5][0] = 'h';
-    cmdlist[5][1] = 'i';
-    cmdlist[5][2] = 's';
-    cmdlist[5][3] = 't';
-    cmdlist[5][4] = 'o';
-    cmdlist[5][5] = 'r';
-    cmdlist[5][6] = 'y';
-
-    cmdlist[6][0] = 'n';
-    cmdlist[6][1] = 'i';
-    cmdlist[6][2] = 'g';
-    cmdlist[6][3] = 'h';
-    cmdlist[6][4] = 't';
-    cmdlist[6][5] = 's';
-    cmdlist[6][6] = 'w';
-    cmdlist[6][7] = 'a';
-    cmdlist[6][8] = 't';
-    cmdlist[6][9] = 'c';
-    cmdlist[6][10] = 'h';
-
-    cmdlist[7][0] = 's';
-    cmdlist[7][1] = 'e';
-    cmdlist[7][2] = 't';
-    cmdlist[7][3] = 'e';
-    cmdlist[7][4] = 'n';
-    cmdlist[7][5] = 'v';
-
-    cmdlist[8][0] = 'u';
-    cmdlist[8][1] = 'n';
-    cmdlist[8][2] = 's';
-    cmdlist[8][3] = 'e';
-    cmdlist[8][4] = 't';
-    cmdlist[8][5] = 'e';
-    cmdlist[8][6] = 'n';
-    cmdlist[8][7] = 'v';
-
-    cmdlist[9][0] = 'b';
-    cmdlist[9][1] = 'g';
-
-    cmdlist[10][0] = 'j';
-    cmdlist[10][1] = 'o';
-    cmdlist[10][2] = 'b';
-    cmdlist[10][3] = 's';
-
-    cmdlist[11][0] = 'o';
-    cmdlist[11][1] = 'v';
-    cmdlist[11][2] = 'e';
-    cmdlist[11][3] = 'r';
-    cmdlist[11][4] = 'k';
-    cmdlist[11][5] = 'i';
-    cmdlist[11][6] = 'l';
-    cmdlist[11][7] = 'l';
-
-    cmdlist[12][0] = 'k';
-    cmdlist[12][1] = 'j';
-    cmdlist[12][2] = 'o';
-    cmdlist[12][3] = 'b';
-
-    cmdlist[13][0] = 'f';
-    cmdlist[13][1] = 'g';
 
     char **cmdarray;
     cmdarray = splitcmd(takecommad);
     int i = 0;
-    // if (cmdarray[0] == NULL)
-    //     return 0;
-    // if (strcmp(cmdarray[0], " ") == 0 || strcmp(cmdarray[0], "\t") == 0)
-    //     return 0;
-    // else
     {
         while (cmdarray[i] != NULL)
         {
-            // printf("here comes cmd %s\n", cmdarray[i]);
             execute(cmdarray[i]);
             i++;
         }

@@ -1,6 +1,6 @@
 char home[150], cmdlist[20][150], prevdir[150], his_path[250];
 int backpointer, mypid;
-int exst;
+int exst;//exit status
 void pwd();
 void addhis(char *);
 void history(char **);
@@ -70,6 +70,5 @@ void execute(char *);
 
 //redir.c
 void tagpiper(char *);
-//
 
 struct bid runproc;

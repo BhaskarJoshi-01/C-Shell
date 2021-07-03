@@ -12,15 +12,12 @@
 #include <wait.h>
 #include "headerfile.h"
 
-void backquit1(int);
-
 void unimplemented(char **execmd, int checkand)
 {
     pid_t proccessid;
-    int i;
+    int i = 0;
     proccessid = fork();
-    i = 0;
-    if (0 > proccessid)
+    if (proccessid <  0)
     {
         printf(" Fork error ");
         exst = 1;
@@ -31,21 +28,14 @@ void unimplemented(char **execmd, int checkand)
         {
             int pt;
             pt = execvp(execmd[0], execmd);
-            // if(pt==-1)
-            // {
-            //     exst=1;
-            // }
             if (pt == -1)
             {
                 perror("could not execute");
                 exst = 1; //sad
-                // return;
-                // printf(":'(");
                 exit(EXIT_FAILURE);
             }
             else
             {
-                // printf(":')");
                 exit(EXIT_SUCCESS);
             }
         }
@@ -58,13 +48,12 @@ void unimplemented(char **execmd, int checkand)
         {
 
             runproc.pid = proccessid, runproc.index = backpointer, runproc.command = execmd[0];
-
             signal(SIGTTIN, SIG_IGN), signal(SIGTTOU, SIG_IGN), signal(SIGCHLD, sigtstp);
             tcsetpgrp(0, proccessid);
             waitpid(proccessid, &i, WUNTRACED);
             if (i > 0)
                 exst = 1;
-            if (i <= 0)
+            else
                 exst = 0;
 
             tcsetpgrp(0, getpgid(0));
