@@ -1,6 +1,38 @@
--- Welcome to bhash! 
+## Welcome to bhash! 
   
-   - Bhaskar's Shell...     ( bhash : BHAskar SHell ) 
+    Bhaskar's Shell...     ( bhash : BHAskar SHell ) 
+
+
+* [Getting Started](#getting-started)
+* [Features](#features)
+* [Command usage and Testing](#command-usage-and-testing)
+
+<a id = "getting-started">
+</a>
+
+## Getting Started
+
+
+
+<a id="features">
+</a>
+
+## Features
+* Display
+When my code is executed , a shell  prompt like  ```<username@system_name:curr_dir>``` appears as seen in linuxOS.
+
+
+
+
+
+
+
+<a id="command-usage-and-testing">
+</a>
+
+## Command usage and Testing
+
+
 
 
 The shell can be initialized by running "make ./bhash" in the terminal.
