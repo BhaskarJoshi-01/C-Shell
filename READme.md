@@ -6,12 +6,22 @@
 * [Getting Started](#getting-started)
 * [Features](#features)
 * [Command usage and Testing](#command-usage-and-testing)
+* [Highlights of content of Files involved](#brief)
+* [Bug Reporting](#bug-reporting)
+* [Important Commands/Structs/Files](#commands)
+* [Feature Request](#feature-request)
 
 <a id = "getting-started">
 </a>
 
 ## Getting Started
+The shell can be initialized by running "make ./bhash" in the terminal.
+This will make *.o files and and an executable file shell which could be run by using "./bhash" command. And to remove the *.o files and bhash shell file use "make clean" in the terminal. 
 
+![running_bhash_with_clean](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/running_bhash_with_clean.gif)
+
+There you are ready to go !!! 
+Check out the features that could be used !
 
 
 <a id="features">
@@ -19,13 +29,40 @@
 
 ## Features
 * Display
-When my code is executed , a shell  prompt like  ```<username@system_name:curr_dir>``` appears as seen in linuxOS.
 
-![running_bhash](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/running_bhash.gif)
+    When my code is executed , a shell  prompt like  ```<username@system_name:curr_dir>``` appears as seen in linuxOS.
+
+    ![running_bhash](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/running_bhash.gif)
+
+    Obviously, <strike>UserName and System Name is not hardcoded lol !! </strike>  xD
+
+* Location of Home
+
+    The directory from which the shell is invoked is the home directory of the shell and is indicated by "~".
+    
+    If the user executes "cd" i.e change dir then the corresponding change is reflected in the shell as well. 
+
+    ```Example: If shell executable resides in '/home/user/Desktop/bhash' then on executing 'cd ..', the command prompt should display '/home/user/Desktop' as the cwd.```
+
+* Exit Codes
+
+    Exit codes indicate whether a process exited normally, or encountered an error. I have displayed them for all external commands, as well as implementing them for internal commands.
+
+    Information about the previous command's exit code is displayed alongside the next prompt as :') if the command exited successfully, or as :'( if it encountered an error.
+
+    The above two scenarios are captured below ^_^
+
+    ![location_home](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/location_home.gif)
 
 
+* Builtin Commands
 
+    The commands like `cd` , `pwd` , `ls` , `pinfo` , `echo` are implemented from scratch. `Ampercent (&)` is used to to run any command in background. 
 
+* Multiple Commands
+
+    Semicolon makes the command into two tokens. So **it can take any number of valid arguments seperated by semicolon**.
+    Shell can be exited by using quit or exit command
 
 
 
@@ -34,25 +71,28 @@ When my code is executed , a shell  prompt like  ```<username@system_name:curr_d
 
 ## Command usage and Testing
 
+* cd 
+
+
+* 
 
 
 
-The shell can be initialized by running "make ./bhash" in the terminal.
-This will make *.o files and and an executable file shell which could be run by using "./bhash" command. And to remove the *.o files and bhash shell file use "make clean" in the terminal.  
+ 
 
-In brief of the tasks which are implemented and asked:
-- This is a shell prompt which displays <username@host:cur_dir> and the path is relative to home .
-- Semicolon makes the command into two tokens. So it can take any number of valid arguments seperated by semicolon .
-- The directory from where the shell  is invoked is taken as the home directory.
--The commands like cd,pwd,ls,pinfo,echo are implemented from scratch.
--Ampercent (&) is used to to run any command in background.
--nightswatch and history are also implemented which are the bonus part of the assignment.
--Shell can be exited by using quit or exit command 
+<a id = "brief">
+</a>
 
-The files such as cd.c,ls.c,pwd.c,pinfo.c,history.c and echo.c are indide implemented folder
+
+## Highlights of content of Files involved
+
+
+In brief of the tasks which are implemented:
+ 
+
 
 Files are as shown below ( and so are most of the commands !! ) : 
-1. main.c : it contains int main(),getdir() and print_promt() functions with various colours function.the concept is calling print_prompt() function to display the username and host with current directory and it then takes input form the user it then calls cmdhandle.c. The signal for ctrl+c , ctrl+z ,ctrl+\ are also handled such that the terminal does not closes.The exit codes for bonus 2 are also implemented here before the print_prompt with the help of global variable exit_status (exst). 
+1. main.c : It contains int main(),getdir() and print_promt() functions with various colours function. The concept is calling print_prompt() function to display the username and host with current directory and it then takes input form the user it then calls cmdhandle.c. The signal for ctrl+c , ctrl+z ,ctrl+\ are also handled such that the terminal does not closes.The exit codes for bonus 2 are also implemented here before the print_prompt with the help of global variable exit_status (exst). 
 
 2. cmdhandle.c : it has splitcmd() to split command into tokens having semicolon, splitargs() to seperate and store the arguments , execute() is to call built in command , checkand() is for checking if command contains & or not and finally commandexec() which is used to execute above functions. I am also checking @ and $ through checklogical().
 
@@ -88,3 +128,31 @@ Files are as shown below ( and so are most of the commands !! ) :
 
 18. headerfile.h : it contains  the above mentioned files and has functions listed in above files.
 
+<a id = "bug-reporting">
+</a>
+
+## Bug Reporting
+
+Please feel free to [open an issue](https://github.com/BhaskarJoshi-01/bhash/issues) if you find any bug .
+
+
+
+
+<a id = "commands">
+</a>
+
+## Important Commands/Structs/Files
+
+Useful commands/structs/files :
+
+`uname, hostname, signal, waitpid, getpid, kill, execvp, strtok, fork, getopt, readdir, opendir, readdir, closedir, sleep, watch, struct stat, struct dirent,/proc/interrupts, /proc/loadavg , getenv, signal, dup, dup2, wait, waitpid, getpid, kill, execvp, malloc, strtok, fork, setpgid, setenv , getchar etc.`
+
+
+<a id = "feature-request">
+</a>
+
+## Feature Request
+
+    Please feel free to [open an issue](https://github.com/BhaskarJoshi-01/bhash/issues) if you want to request some additional features.
+
+    Connect me on [LinkedIn](https://www.linkedin.com/in/bhaskar-joshi-968a591a4/), I would love to hear from you!
