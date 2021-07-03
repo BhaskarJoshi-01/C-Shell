@@ -92,19 +92,40 @@ In brief of the tasks which are implemented:
 
 
 Files are as shown below ( and so are most of the commands !! ) : 
-1. main.c : It contains int main(),getdir() and print_promt() functions with various colours function. The concept is calling print_prompt() function to display the username and host with current directory and it then takes input form the user it then calls cmdhandle.c. The signal for ctrl+c , ctrl+z ,ctrl+\ are also handled such that the terminal does not closes.The exit codes for bonus 2 are also implemented here before the print_prompt with the help of global variable exit_status (exst). 
+1. main.c :
 
-2. cmdhandle.c : it has splitcmd() to split command into tokens having semicolon, splitargs() to seperate and store the arguments , execute() is to call built in command , checkand() is for checking if command contains & or not and finally commandexec() which is used to execute above functions. I am also checking @ and $ through checklogical().
+    It contains int main(),getdir() and print_promt() functions with various colours function. The concept is calling print_prompt() function to display the username and host with current directory and it then takes input form the user it then calls cmdhandle.c. The signal for ctrl+c , ctrl+z ,ctrl+\ are also handled such that the terminal does not closes.The exit codes  are also implemented here before the print_prompt with the help of global variable exit_status (exst). 
 
-3. cd.c :it implemends cd and it also executes cd -,cd ~
+2. cmdhandle.c : 
 
-4. pwd.c : it implemends pwd command
+    It has splitcmd() to split command into tokens having semicolon.
 
-5. pinfo.c : it implemends pinfo and prints processes related to shell 
+    splitargs() to seperate and store the arguments .
 
-6. ls.c : really lengthy and most complex part of the code which took  days to debug and correct. it has ls function , filter and get_printinfo() . ls basically raises flags for -l , -a , -la/-al and displays total block of 1024 bytes occupied by the directory in corresponding colours and well spaced.
+    execute() is to call built in command .
+    checkand() is for checking if command contains & or not and finally commandexec() which is used to execute above functions. 
+    
+    I am also checking @ and $ through checklogical().
 
-7. echo.c : it implemends echo functions just does the things.
+3. cd.c :
+
+    It implemends cd and it also executes cd -,cd ~, cd . and cd ..
+
+4. pwd.c : 
+    
+    It  has the implemendation of  pwd command
+
+5. pinfo.c : 
+
+    it implemends pinfo and prints processes related to shell 
+
+6. ls.c : 
+
+    It has ls function , filter and get_printinfo() . ls basically raises flags for -l , -a , -la/-al and displays total block of 1024 bytes occupied by the directory in corresponding colours and well spaced.
+
+7. echo.c :
+    
+    It implemends echo functions just does the things.
 
 8. history.c : it stores history of 20 commands and prints 10 at a time if no argument is specified and prints desired history if argument is less than 20 . if argument is greater than 20 then it just loops over the 20 commands stored.
 
