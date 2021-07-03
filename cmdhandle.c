@@ -29,7 +29,6 @@ char **splitcmd(char *takecommand)
     while (placeholder != NULL)
     {
         ff++;
-
         if (pt >= sizeof(cmdarray) / 8)
         {
             cmdarray = realloc(cmdarray, sizeof(char *) * 105);

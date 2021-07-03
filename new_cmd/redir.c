@@ -59,7 +59,7 @@ void pipeexec(char **args)
     int j, k;
     j = k = 0;
 
-    while (NULL != args[k])
+    while (args[k] != NULL)
     {
         if (!strcmp(args[k], ">") || !strcmp(args[k], "<") || !strcmp(args[k], ">>"))
         {

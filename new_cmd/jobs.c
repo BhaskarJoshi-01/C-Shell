@@ -41,7 +41,6 @@ void jobs(char **args)
 
         printf("Give Proper arguments: More arguments given");
         printf("\n");
-        // printf(":'(");
         exst = 1;
         return;
     }
@@ -116,7 +115,6 @@ void jobs(char **args)
         else
             i++;
     }
-    // printf(":')");
     exst = 0;
 }
 
@@ -126,14 +124,12 @@ void kjobs(char **args)
     {
         printf("Give Proper arguments: Less arguments given");
         printf("\n");
-        // printf(":'(");
         exst = 1;
     }
     else if (NULL != args[3])
     {
         printf("Give Proper arguments: More arguments given");
         printf("\n");
-        // printf(":'(");
         exst = 1;
     }
     else
@@ -146,14 +142,12 @@ void kjobs(char **args)
         {
             printf("Process Does not exists ");
             printf("\n");
-            // printf(":'(");
             exst = 1;
         }
         else if (!(backarray[jobnumb].status))
         {
             printf("Process does not exists");
             printf("\n");
-            // printf(":'(");
             exst = 1;
         }
         else
@@ -162,17 +156,14 @@ void kjobs(char **args)
             procnum = backarray[jobnumb].pid;
             printf("%d %d", procnum, signaaal);
             printf("\n");
-            // printf(":')");
 
             if (!(kill(procnum, signaaal) + 1))
             {
                 perror("Error in kjobs ");
-                // printf(":'(");
                 exst = 1;
             }
             else
             {
-                // printf(":')");
                 exst = 0;
             }
         }
@@ -189,13 +180,10 @@ void fg(char **args)
     {
         printf("Give Proper arguments: More arguments given");
         printf("\n");
-        // printf(":'(");
         exst = 1;
     }
     else
     {
-
-        // printf("");
         int jobid = 0;
         if (args[1] != NULL)
         {
@@ -203,14 +191,12 @@ void fg(char **args)
             if (jobid < 0)
             {
                 printf("No such job exists\n");
-                // printf(":'(");
                 exst = 1;
                 return;
             }
             else if (jobid >= backpointer)
             {
                 printf("No such job exists\n");
-                // printf(":'(");
                 exst = 1;
                 return;
             }
@@ -232,8 +218,6 @@ void fg(char **args)
         if (kill((backarray[jobid].pid), SIGCONT) == -1)
         {
             perror("Error in fg");
-            // printf(":'(");
-
             exst = 1;
             return;
         }
@@ -248,9 +232,7 @@ void fg(char **args)
         signal(SIGTTOU, SIG_DFL);
         printf("%d", y);
         printf("\n");
-        // printf(":')");
         exst = 0;
-
         return;
     }
 }

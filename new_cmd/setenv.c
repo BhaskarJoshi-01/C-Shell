@@ -11,7 +11,7 @@ void seten(char **args)
         printf("\n");
         exst = 1;
     }
-    else if ((NULL != args[2]) && (NULL != args[3]))
+    else if ((args[2] != NULL) && (  args[3] != NULL))
     {
         printf("Too many arguments passed");
         printf("\n");

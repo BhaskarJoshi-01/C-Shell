@@ -182,13 +182,11 @@ void ls(char **cmdarg)
                     count += 1;
                 }
                 free(list);
-                // printf(":')");
                 exst = 0;
             }
             else
             {
                 perror("ls directory ");
-                // printf(":'(");
                 exst = 1;
                 return;
             }
@@ -250,9 +248,6 @@ void ls(char **cmdarg)
                     else
                     {
                         perror("ls directory ");
-                        // printf(":'(");
-                        // exst=1;
-                        // return;
                         flaag++;
                         j++;
                         continue;
@@ -261,7 +256,6 @@ void ls(char **cmdarg)
                 j++;
                 printf("\n");
             }
-            // printf(":')");
             if (flaag == 0)
             {
                 exst = 0;
@@ -303,13 +297,11 @@ void ls(char **cmdarg)
                         count += 1;
                     }
                     free(list);
-                    // printf(":')");
                     exst = 0;
                 }
                 if (k < 0)
                 {
                     perror("ls directory ");
-                    // printf(":'(");
                     exst = 1;
                     return;
                 }
@@ -345,8 +337,6 @@ void ls(char **cmdarg)
                         if (k < 0)
                         {
                             perror("ls directory ");
-                            // printf(":'(");
-                            // return;
                             flaag++;
                             j++;
                             continue;
@@ -383,7 +373,6 @@ void ls(char **cmdarg)
                     j++;
                     printf("\n");
                 }
-                // printf(":')");
                 if (!flaag)
                 {
                     exst = 0;

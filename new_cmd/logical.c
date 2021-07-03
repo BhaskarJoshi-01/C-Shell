@@ -16,7 +16,6 @@
 int logicalexec(char *cmd);
 void logical(char *cmd)
 {
-    // printf("Just entered logical\n");
     int arr[2000], i, j, val, operator_number;
     memset(arr, -1, sizeof(arr));
     i = j = 0;
@@ -70,9 +69,6 @@ void logical(char *cmd)
             printf("Syntax is not correct");
             printf("\n");
             return;
-            // i++;
-            // continue;
-            // temp_val = 0;
         }
         else
         {
@@ -105,8 +101,6 @@ int logicalexec(char *cmd)
     strcpy(cmdcpy, cmd);
 
     execmd = splitargs(cmd);
-    // if (execmd[0] == NULL)
-    //     return ;
 
     while (NULL != execmd[pipcheck])
     {
