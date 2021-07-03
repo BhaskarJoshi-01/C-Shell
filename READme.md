@@ -21,6 +21,7 @@
 * Display
 When my code is executed , a shell  prompt like  ```<username@system_name:curr_dir>``` appears as seen in linuxOS.
 
+![running_bhash](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/running_bhash.gif)
 
 
 
