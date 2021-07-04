@@ -73,7 +73,7 @@ Check out the features that could be used !
 
 ## Command usage and Testing
 
-Details on most of my commands can be found on man page or you can use `man command_name ` on shell to get the info of the command. 
+Details on most of my commands can be found on man page or you can use `man command_name ` on shell to get the info of the command.  Testing Commands are present inside the Assets folder. Brief overview / possible commands are listed below:
 
 * cd 
 
@@ -107,6 +107,60 @@ Details on most of my commands can be found on man page or you can use `man comm
 
     ![history](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/history.gif)
  
+
+ * Foreground and Background Processse
+
+    To send a command to background we can type it with `&` like :
+
+    Foreground processes: For example, executing a "vi" command in the foreground implies that your shell will wait for this process to complete and regain control when this process exits.
+
+    Background processes: Any command invoked with "&" is treated as background command. This implies that your shell will spawn that process and doesn't wait for the process to exit. It will keep taking user commands.
+
+    ![sleep](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/sleep.gif)
+ 
+
+* Nightswatch
+
+* Redirectional Operators and Pipeline
+
+* User Defined Commands
+    
+    1. setenv var [value]
+    
+        Initially,  shell inherits environment variables from its parent
+process. This command allows the user to set the value of the
+environment variable var to value, creating the environment variable if
+it doesn't already exist. If value is omitted, the variable's value is set to
+the empty string. It is an error for the setenv command to be invoked
+with zero or more than two command-line arguments.
+
+    2. unsetenv var
+    
+        This command should cause  shell to destroy the environment
+variable var, if it exists. It is an error for the unsetenv command to be
+invoked with zero or more than one command-line arguments.
+
+    3. jobs
+    
+        This command prints a list of all currently running background
+processes spawned by the shell in order of their creation times, along
+with their job number (a sequential number assigned by your shell),
+process ID and their state, which can either be running or stopped.
+
+
+    4. kjob <job number> <signal number>
+        
+        Takes the job number (assigned by  shell) of a running job and
+sends the signal corresponding to signal number to that process. The
+shell should throw an error if no job with the given number exists. 
+
+
+    5. overkill
+        This command kills all background processes at once.
+
+    6. quit
+        This command, you guessed it, exits the shell. Shell also exit on pressing CTRL+D, which corresponds to the EOF character.
+
 
 <a id = "brief">
 </a>
