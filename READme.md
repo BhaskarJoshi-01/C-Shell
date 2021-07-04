@@ -10,7 +10,7 @@
 * [Bug Reporting](#bug-reporting)
 * [Important Commands/Structs/Files](#commands)
 * [Feature Request](#feature-request)
-
+* [Features Not Supported](#not-features)
 <a id = "getting-started">
 </a>
 
@@ -18,7 +18,7 @@
 The shell can be initialized by running "make ./bhash" in the terminal.
 This will make *.o files and and an executable file shell which could be run by using "./bhash" command. And to remove the *.o files and bhash shell file use "make clean" in the terminal. 
 
-![running_bhash_with_clean](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/running_bhash_with_clean.gif)
+![running_bhash_with_clean](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/running_bash_with_clean.gif)
 
 There you are ready to go !!! 
 Check out the features that could be used !
@@ -64,19 +64,35 @@ Check out the features that could be used !
     Semicolon makes the command into two tokens. So **it can take any number of valid arguments seperated by semicolon**.
     Shell can be exited by using quit or exit command
 
+* Tracks History
 
+    It tracks history upto 20 commands and stores it in .history file. Deletion of this file is completely harmless except the history will not be tracked!
 
 <a id="command-usage-and-testing">
 </a>
 
 ## Command usage and Testing
 
+Details on most of my commands can be found on man page or you can use `man command_name ` on shell to get the info of the command. 
+
 * cd 
+    cd command in linux known as change directory command. It is used to change current working directory.
 
+    ![cd](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/cd.gif)
 
-* 
+* pwd
 
+    pwd stands for Print Working Directory. It prints the path of the working directory, starting from the root. pwd is shell built-in command(pwd). The usage is shown with `cd` the above !
 
+* pinfo
+    
+    is user-friendly, console-based viewer for Info documents
+    
+    ![pinfo](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/pinfo.gif)
+
+* echo 
+
+    
 
  
 
@@ -149,6 +165,18 @@ Files are as shown below ( and so are most of the commands !! ) :
 
 18. headerfile.h : it contains  the above mentioned files and has functions listed in above files.
 
+<a id = "not-features">
+</a>
+
+## Features Not Supported
+bhash does not support the following yet:
+
+    `tab` completion
+    Support for quoting and escape sequences
+    User profiles
+    Command recamming by pressing `up` key
+    and maybe a lot more...
+
 <a id = "bug-reporting">
 </a>
 
@@ -174,6 +202,6 @@ Useful commands/structs/files :
 
 ## Feature Request
 
-    Please feel free to [open an issue](https://github.com/BhaskarJoshi-01/bhash/issues) if you want to request some additional features.
+Please feel free to [open an issue](https://github.com/BhaskarJoshi-01/bhash/issues) if you want to request some additional features.
 
-    Connect me on [LinkedIn](https://www.linkedin.com/in/bhaskar-joshi-968a591a4/), I would love to hear from you!
+Connect me on [LinkedIn](https://www.linkedin.com/in/bhaskar-joshi-968a591a4/), I would love to hear from you!

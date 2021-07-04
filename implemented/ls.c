@@ -201,7 +201,7 @@ void ls(char **cmdarg)
                 if (cmdarg[j][0] != '-')
                 {
                     char temp[150];
-                   
+
                     if (cmdarg[j][0] == '~')
                     {
                         strcpy(temp, home);
@@ -316,12 +316,11 @@ void ls(char **cmdarg)
                     if (cmdarg[j][0] != '-')
                     {
                         char temp[150];
-                        
+
                         if (cmdarg[j][0] == '~')
                         {
                             strcpy(temp, home);
                             strcat(temp, 1 + cmdarg[j]);
-                            
                         }
                         else
                             strcpy(temp, cmdarg[j]);
