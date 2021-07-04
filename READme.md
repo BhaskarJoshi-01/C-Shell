@@ -76,6 +76,7 @@ Check out the features that could be used !
 Details on most of my commands can be found on man page or you can use `man command_name ` on shell to get the info of the command. 
 
 * cd 
+
     cd command in linux known as change directory command. It is used to change current working directory.
 
     ![cd](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/cd.gif)
@@ -91,9 +92,20 @@ Details on most of my commands can be found on man page or you can use `man comm
     ![pinfo](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/pinfo.gif)
 
 * echo 
-
     
+    As this was part of assignment , I implemented this as it was required. We were to print the text after echo directly, and not caring about quotes - this feature is not like the original linux shell
 
+    ![echo](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/echo.gif)
+
+* history
+
+    It displays 10 past commands and stores upto 20 commands. (for assignment purpose we were supposed to store 20 commands)
+    But we can display upto 20 commands.
+    Let us consider we have only 11 commands stored in history but we give history 12 as command , it will only display 11 commands.
+    But if we have already entered more than 20 commands, it will display latest 20 commands!
+
+
+    ![history](https://github.com/BhaskarJoshi-01/bhash/blob/main/Assets/history.gif)
  
 
 <a id = "brief">
@@ -121,7 +133,7 @@ Files are as shown below ( and so are most of the commands !! ) :
     execute() is to call built in command .
     checkand() is for checking if command contains & or not and finally commandexec() which is used to execute above functions. 
     
-    I am also checking @ and $ through checklogical().
+    I am also checking @ and $ through checklogical(). [Part of assignment !]
 
 3. cd.c :
 
@@ -143,27 +155,50 @@ Files are as shown below ( and so are most of the commands !! ) :
     
     It implemends echo functions just does the things.
 
-8. history.c : it stores history of 20 commands and prints 10 at a time if no argument is specified and prints desired history if argument is less than 20 . if argument is greater than 20 then it just loops over the 20 commands stored.
+8. history.c :
 
-9. unimplemented.c : contains unimplemented() and backquit() functions. handles commands which are not manually implemented and also handles background processed and printing when it is killed.
+    It stores history of 20 commands and prints 10 at a time if no argument is specified and prints desired history if argument is less than 20 . If argument is greater than 20 then it just loops over the 20 commands stored.
 
-10. nightswatch.c :contains nightwatch(),interrupt(),keydown() and newborn() and if valid arguments are given it starts a timer and calls newborn or interrupt and if q is pressed it quits . interrupt prints the number of times keyboard interrupted CPUs and newborn   tells the process of last created pid.
+9. unimplemented.c : 
+    
+    Contains unimplemented() and backquit() functions. handles commands which are not manually implemented and also handles background processed and printing when it is killed.
 
-11. bghand.c : it containd a funtion bghand which is called from cmdhandle.c and it implements bg command.
+10. nightswatch.c :
+    
+    contains nightwatch(),interrupt(),keydown() and newborn() and if valid 
+    arguments are given it starts a timer and calls newborn or interrupt and if q is pressed it quits . interrupt prints the number of times keyboard interrupted CPUs and newborn   tells the process of last created pid.
 
-12. jobs.c : it contains the function jobs(),chekallkill(),fg(),kjob() which opens jobs, check if all jobs are stopped , moves a command to foreground,kills a job with its job no.
+11. bghand.c : 
+    
+    It containd a funtion bghand which is called from cmdhandle.c and it implements bg command.
 
-13. logical.c : it contains two functions and the third bonus is implemented in this part .
+12. jobs.c :
+    
+    It contains the function jobs(),chekallkill(),fg(),kjob() which opens jobs, check if all jobs are stopped , moves a command to foreground,kills a job with its job no.
 
-14. overkill.c : it contains a function for killing all the jobs 
+13. logical.c : 
+    
+    It contains two functions and the third bonus is implemented in this part .
 
-15. redir.c :it handles the piping and redirection of the command given.
+14. overkill.c :
+    
+    It contains a function for killing all the jobs 
 
-16. setenv.c : it sets global variable which can be checked through printenv
+15. redir.c :
+    
+    It handles the piping and redirection of the command given.
 
-17. sighnd.c : it contains three signal handlers for ctrl+c,ctrl+z and the segfault that was occuring on ctrl+\ was also handled 
+16. setenv.c :
+    
+    It sets global variable which can be checked through printenv
 
-18. headerfile.h : it contains  the above mentioned files and has functions listed in above files.
+17. sighnd.c :
+    
+    It contains three signal handlers for ctrl+c,ctrl+z and the segfault that was occuring on ctrl+\ was also handled 
+
+18. headerfile.h : 
+    
+    It contains  the above mentioned files and has functions listed in above files.
 
 <a id = "not-features">
 </a>
